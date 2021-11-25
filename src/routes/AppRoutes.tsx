@@ -5,7 +5,7 @@ import { Page } from '../pages/Page';
 
 const integerConstraint = `(\\d+)`;
 
-export const AppRoutes: React.FC = () => (
+export const AppRoutes: React.VFC = () => (
   <HashRouter>
     <Switch>
       <Route path={`/:pageId${integerConstraint}`}>
