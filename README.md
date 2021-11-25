@@ -1,4 +1,4 @@
-Vite template with stack I work with.
+Vite template with my main stack.
 
 ```bash
 npm install -g degit
