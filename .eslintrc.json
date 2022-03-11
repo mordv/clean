@@ -12,7 +12,7 @@
   },
   "rules": {
     "@typescript-eslint/ban-ts-comment": "off",
-    "prettier/prettier": "off",
+    "prettier/prettier": "warn",
     "react/prop-types": "off",
     "react/jsx-no-bind": "off",
     "react/no-array-index-key": "warn",
@@ -21,7 +21,7 @@
     "@typescript-eslint/no-empty-interface": "warn",
     "@typescript-eslint/no-empty-function": "off",
     "quotes": "off",
-    "@typescript-eslint/quotes": ["off", "backtick"],
+    "@typescript-eslint/quotes": ["warn", "backtick"],
     "react/jsx-curly-brace-presence": [
       "warn",
       {
