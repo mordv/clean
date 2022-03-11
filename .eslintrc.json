@@ -11,7 +11,8 @@
     "es6": true
   },
   "rules": {
-    "prettier/prettier": "warn",
+    "@typescript-eslint/ban-ts-comment": "off",
+    "prettier/prettier": "off",
     "react/prop-types": "off",
     "react/jsx-no-bind": "off",
     "react/no-array-index-key": "warn",
@@ -20,7 +21,7 @@
     "@typescript-eslint/no-empty-interface": "warn",
     "@typescript-eslint/no-empty-function": "off",
     "quotes": "off",
-    "@typescript-eslint/quotes": ["warn", "backtick"],
+    "@typescript-eslint/quotes": ["off", "backtick"],
     "react/jsx-curly-brace-presence": [
       "warn",
       {
