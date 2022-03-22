@@ -25,3 +25,6 @@ const getRandomInt = (min: number, max: number): number => {
 };
 
 export const randomElement = <T>(array: T[]): T => array[getRandomInt(0, array.length - 1)];
+
+export const addInRing = (n: number, add: number, ringSize: number): number =>
+  n + add >= ringSize ? 0 : n + add < 0 ? ringSize - 1 : n + add;
