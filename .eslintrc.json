@@ -12,6 +12,7 @@
   },
   "rules": {
     "@typescript-eslint/ban-ts-comment": "off",
+    "@typescript-eslint/no-non-null-assertion": "off",
     "prettier/prettier": "warn",
     "react/prop-types": "off",
     "react/jsx-no-bind": "off",
