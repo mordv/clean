@@ -46,7 +46,7 @@
         "allowUnboundThis": false
       }
     ],
-    "func-style": ["warn", "expression"],
+    "func-style": ["off", "expression"],
     "arrow-body-style": ["warn", "as-needed"],
     "object-shorthand": "warn"
   },
