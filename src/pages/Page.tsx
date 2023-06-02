@@ -1,12 +1,9 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
 
-interface PageParams {
+interface PageProps {
   pageId: string;
 }
 
-export const Page: React.VFC = () => {
-  const { pageId } = useParams<PageParams>();
-
+export const Page: React.FC<PageProps> = ({ pageId }) => {
   return <div>{pageId}</div>;
 };

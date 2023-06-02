@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .center {
+    @apply flex items-center justify-center
+  }
+
+  .vstack {
+    @apply flex flex-col
+  }
+
+  .full {
+    @apply w-full h-full
+  }
+
+  .center-full {
+    @apply full center
+  }
+
+  .error {
+    @apply outline-pink-500 ring-1 ring-pink-500
+  }
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
+    'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+* {
+  overscroll-behavior-y: contain;
+}
+
+@font-face {
+  font-family: 'JetBrainsMono';
+  src: url('$fonts/JetBrainsMono-Bold.woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
+code {
+  font-family: "JetBrainsMono", source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+:not(.dark) *::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+:not(.dark) *::-webkit-scrollbar-thumb {
+  background: #c5c5c5;
+}
+
+.dark *::-webkit-scrollbar-track {
+  background: rgba(202, 204, 206, 0.04);
+}
+
+.dark *::-webkit-scrollbar-thumb {
+  background: #474c50;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar {
+  background: transparent;
+}

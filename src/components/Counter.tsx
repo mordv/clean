@@ -1,24 +1,22 @@
 import React from 'react';
-import { AppState, useAppStore } from '../state/state';
-import shallow from 'zustand/shallow';
-import { Button, Center, Flex } from '@chakra-ui/react';
+import { useActions, useAppStore } from '../state/state';
+import { Button } from './library/Button';
 
-const selector = ({ dec, inc, counter }: AppState) => ({ dec, inc, counter });
-
-export const Counter: React.VFC = () => {
-  const { counter, inc, dec } = useAppStore(selector, shallow);
+export const Counter: React.FC = () => {
+  const { inc, dec } = useActions();
+  const counter = useAppStore((s) => s.counter);
 
   return (
-    <Flex width={`f`} justifyContent={`space-between`} alignItems={`center`}>
-      <Button onClick={dec} colorScheme={`red`}>
+    <div className={'flex w-full items-center justify-between'}>
+      <Button onClick={dec} variant={`red`}>
         -
       </Button>
-      <Center px={2} minW={`100px`} maxW={`100px`}>
+      <div className={'center px-2 min-w-[100px] max-w-[100px]'}>
         <div>{counter}</div>
-      </Center>
-      <Button onClick={inc} colorScheme={`green`}>
+      </div>
+      <Button onClick={inc} variant={`green`}>
         +
       </Button>
-    </Flex>
+    </div>
   );
 };

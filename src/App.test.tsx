@@ -1,9 +1,16 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
-import { App } from './App';
+import { assert, describe, expect, it } from 'vitest';
 
-test(`renders learn react link`, () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+describe('suite name', () => {
+  it('foo', () => {
+    expect(1 + 1).toEqual(2);
+    expect(true).to.be.true;
+  });
+
+  it('bar', () => {
+    assert.equal(Math.sqrt(4), 2);
+  });
+
+  it('snapshot', () => {
+    expect({ foo: 'bar' }).toMatchSnapshot();
+  });
 });
