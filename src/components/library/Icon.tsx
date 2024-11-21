@@ -15,7 +15,7 @@ import {
   TbLoader,
   TbMoon,
   TbPlus,
-  TbQuestionCircle,
+  TbQuestionMark,
   TbSend,
   TbSun,
   TbTrash,
@@ -24,7 +24,7 @@ import {
 } from 'react-icons/tb';
 import React from 'react';
 import { match } from 'ts-pattern';
-import { IconBaseProps } from 'react-icons/lib/cjs/iconBase';
+import { IconBaseProps } from 'react-icons';
 
 export const icons = [
   'arrowRight',
@@ -52,6 +52,31 @@ export const icons = [
 ] as const;
 export type IconType = (typeof icons)[number];
 
+const Icons = {
+  arrowRight: TbArrowRight,
+  electricalComponent: TbCalculator,
+  tasks: TbClock,
+  assembly: TbAssembly,
+  projects: TbLayoutDashboard,
+  send: TbSend,
+  dashboard: TbDashboard,
+  editor: TbEdit,
+  warn: TbAlertTriangleFilled,
+  mcu: TbCpu,
+  circuit: TbCircuitCell,
+  state: TbList,
+  light: TbSun,
+  close: TbX,
+  play: TbTriangleFilled,
+  dark: TbMoon,
+  fire: TbFlame,
+  question: TbQuestionMark,
+  eye: TbEyeFilled,
+  trash: TbTrash,
+  loader: TbLoader,
+  plus: TbPlus,
+} satisfies Record<IconType, React.FC>;
+
 interface IconProps extends IconBaseProps {
   icon: IconType;
   color?: string;
@@ -63,32 +88,9 @@ export const Icon: React.FC<IconProps> = ({
   color,
   ...rest
 }) => {
-  const Component = match(icon)
-    .with('arrowRight', () => TbArrowRight)
-    .with('electricalComponent', () => TbCalculator)
-    .with('tasks', () => TbClock)
-    .with('assembly', () => TbAssembly)
-    .with('projects', () => TbLayoutDashboard)
-    .with('send', () => TbSend)
-    .with('dashboard', () => TbDashboard)
-    .with('editor', () => TbEdit)
-    .with('warn', () => TbAlertTriangleFilled)
-    .with('mcu', () => TbCpu)
-    .with('circuit', () => TbCircuitCell)
-    .with('state', () => TbList)
-    .with('light', () => TbSun)
-    .with('close', () => TbX)
-    .with('play', () => TbTriangleFilled)
-    .with('dark', () => TbMoon)
-    .with('fire', () => TbFlame)
-    .with('question', () => TbQuestionCircle)
-    .with('eye', () => TbEyeFilled)
-    .with('trash', () => TbTrash)
-    .with('loader', () => TbLoader)
-    .with('plus', () => TbPlus)
-    .exhaustive();
-
+  const Component = Icons[icon];
   const modifiers = match(icon)
+    .returnType<string>()
     .with('play', () => 'rotate-90')
     .with('send', () => 'rotate-45')
     .otherwise(() => '');

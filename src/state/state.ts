@@ -1,4 +1,4 @@
-import { create, GetState, SetState, StateCreator, StoreApi } from 'zustand';
+import { create, StateCreator, StoreApi } from 'zustand';
 import { produce } from 'immer';
 import { devtools } from 'zustand/middleware';
 import { ObjectTyped, PickFunctions } from '@mordv/utils';
@@ -6,23 +6,27 @@ import { shallow } from 'zustand/shallow';
 
 export interface AppState {
   counter: number;
+
   inc(): void;
+
   dec(): void;
 }
 
 const loggerMiddleware =
   (stateCreator: StateCreator<AppState>) =>
   (
-    set: SetState<AppState>,
-    ...rest: [GetState<AppState>, StoreApi<AppState>]
+    set: StoreApi<AppState>['setState'],
+    get: StoreApi<AppState>['getState'],
+    api: StoreApi<AppState>
   ) =>
-    stateCreator((state) => {
-      console.log(
-        `update state: `,
-        typeof state === `function` ? `function update` : state
-      );
-      set(state);
-    }, ...rest);
+    stateCreator(
+      (state) => {
+        console.log(typeof state === `function` ? state(get()) : state);
+        set(state);
+      },
+      get,
+      api
+    );
 
 export const useAppStore = create<AppState>()(
   devtools(
