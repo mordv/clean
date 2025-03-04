@@ -1,20 +1,20 @@
 import React from 'react';
-import { useActions, useAppStore } from '../state/state';
+import { countAtomApi } from '../state/state';
 import { Button } from './library/Button';
+import { useAtom } from 'jotai';
 
 export const Counter: React.FC = () => {
-  const { inc, dec } = useActions();
-  const counter = useAppStore((s) => s.counter);
+  const [count, countActions] = useAtom(countAtomApi);
 
   return (
     <div className={'flex w-full items-center justify-between'}>
-      <Button onClick={dec} variant={`red`}>
+      <Button onClick={() => countActions('dec')} variant={`red`}>
         -
       </Button>
       <div className={'center px-2 min-w-[100px] max-w-[100px]'}>
-        <div>{counter}</div>
+        <div>{count}</div>
       </div>
-      <Button onClick={inc} variant={`green`}>
+      <Button onClick={() => countActions('inc')} variant={`green`}>
         +
       </Button>
     </div>
