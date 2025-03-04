@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite';
 import { default as viteReact } from '@vitejs/plugin-react';
-import { resolve } from 'path';
+import path, { resolve } from 'path';
 import svgr from 'vite-plugin-svgr';
 
 // https://vitejs.dev/config/
@@ -15,6 +15,7 @@ export default defineConfig({
   resolve: {
     alias: {
       $fonts: resolve('./public/fonts'),
+      '@': path.resolve(__dirname, './src'),
     },
   },
 });
