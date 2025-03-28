@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer utilities {
+  .debug {
+    @apply [&_*]:ring-[1px] [&_*]:ring-d-r;
+  }
+  
   .center {
     @apply flex items-center justify-center
   }
